@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Docker</title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="bower_components/normalize-css/normalize.css" />
+  <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="bower_components/highlightjs/styles/tomorrow.css" />
+  <link rel="stylesheet" href="bower_components/ruban/css/ruban.min.css" />
+  <link rel="stylesheet" href="bower_components/ruban/css/ruban-print.min.css" media="print" />
+  <style>
+    section {
+      border-left: 1em solid #434343;
+      border-right: 1em solid #434343;
+    }
+    .pagination {
+      right: 2.6em;
+    }
+  </style>
+</head>
+<body>
+  <section id="docker">
+    <p style="text-align: center; font-size: 1.3em; font-weight: bold;">
+      <img src="images/docker-logo.png" alt="docker"/>
+      <br/>&laquo;Tour d'horizon&raquo;
+    </p>
+    <p style="font-size: 0.8em; text-align: right;">
+      Julien&nbsp;Fusco
+      <br/><i class="fa fa-github"></i>&nbsp;github.com/Koin
+      <br/><i class="fa fa-twitter"></i>&nbsp;twitter.com/PKoin
+    </p>
+  </section>
+  <section id="table-des-matieres" class="toc">
+    <h1>Table des matières</h1>
+  </section>
+  <section id="who">
+    <h1><i class="fa fa-users"></i> Par qui ?</h1>
+  </section>
+  <section id="dot-cloud">
+    <div>
+      <p>Docker Inc., anciennement dotCloud.</p>
+      <p style="text-align: right; font-size: 0.7em;">
+        <img src="images/namechange.jpg">
+        October 29, 2013
+      </p>
+      <p>
+        Fournisseur de PaaS &laquo;Platform as a Service&raquo;
+      </p>
+    </div>
+  </section>
+  <section id="why">
+    <h1><i class="fa fa-question-circle"></i> Pourquoi ?</h1>
+  </section>
+  <section id="paas">
+    <div>
+      <h2>&laquo;Platform as a Service&raquo;</h2>
+      <ul>
+        <li><i class="fa fa-angle-right"></i> Isolation des applications</li>
+        <li><i class="fa fa-angle-right"></i> Rapidité de déploiement et auto-scaling</li>
+      </ul>
+    </div>
+  </section>
+  <section id="the-matrix-of-hell">
+    <div style="text-align: center;">
+      &laquo;The Matrix of Hell&raquo;
+      <img src="images/the_matrix_of_hell.jpg" alt="The matrix of Hell" width="900px">
+    </div>
+  </section>
+  <section id="how">
+    <h1><i class="fa fa-cogs"></i> Quelles solutions ?</h1>
+  </section>
+  <section id="two-solutions">
+    <div style="text-align: center;">
+      Machines virtuelles : Xen, VirtualBox, VMware,...
+      <p><img src="images/docker_vs_vm.jpg"></p>
+      Conteneurs : LXC, OpenVZ,...
+    </div>
+  </section>
+  <section id="lxc">
+    <h2>LXC, &laquo;Linux Containers&raquo;</h2>
+    <p style="font-size: 75%;">Système de cloisonnement : <strong>chroot on steroids!</strong></p>
+    <p style="font-size: 75%;"><i class="fa fa-angle-right"></i> Partagent le même noyau</p>
+    <p style="font-size: 75%;"><i class="fa fa-angle-right"></i> Virtualisent l'env d'exécution (Processeur, mémoire, réseau, système de fichier, ...) et non pas de la machine</p>
+    <p style="font-size: 75%;"><strong>conteneur == virtualisation légère != machine virtuelle</strong></p>
+  </section>
+  <section id="lxc-details">
+    <h2>LXC, &laquo;Linux Containers&raquo;</h2>
+    <p>Merci les <strong>namespaces</strong>!<br/><i class="fa fa-angle-right"></i> Isolation des processus, points de montage, interfaces réseaux, utilisateurs, ...</p>
+    <p>Merci les <strong>cgroups</strong> !<br/><i class="fa fa-angle-right"></i> Limitation des ressources (RAM, CPU) pour un groupe de processus</p>
+  </section>
+  <section id="aufs">
+    <h2>AUFS, &laquo;Another Union File System&raquo;</h2>
+    <p>Fusion de deux hiérarchies de répertoires :</p>
+    <ul>
+      <li><i class="fa fa-angle-right"></i> Gros système de fichiers en lecture seule (image bootable d'un système)</li>
+      <li><i class="fa fa-angle-right"></i> Répertoire accessible en écriture</li>
+    </ul>
+  </section>
+  <section id="help">
+    <div style="text-align: center;">
+      <h2>HALP :/</h2>
+      <img src="images/no_idea_dog.jpg" alt="i have no idea what i'm doing">
+    </div>
+  </section>
+  <section id="thanks-docker">
+    <div style="text-align: center;">
+      <h2>DOCKER FTW!</h2>
+      <img src="images/write_once_run_everywhere.jpg" alt="write once run everywhere">
+    </div>
+  </section>
+  <section id="docker-stats">
+    <h2>Quelques stats</h2>
+    <ul>
+      <li>
+        <i class="fa fa-angle-right"></i> Écrit en Go à 87%
+      </li>
+      <li>
+        <i class="fa fa-angle-right"></i> Premier commit :
+        <ul>
+          <li>Andrea Luzzardi</li>
+          <li>Fri Jan 18 16:13:39 2013 -0800</li>
+        </ul>
+      </li>
+      <li><i class="fa fa-angle-right"></i> + de 6400 commits</li>
+      <li><i class="fa fa-angle-right"></i> + de 340 contributeurs</li>
+    </ul>
+  </section>
+  <section id="installation">
+    <h1><i class="fa fa-download"></i> Installation</h1>
+  </section>
+  <section id="installation-alternatives">
+    <h1>Alternatives</h1>
+    <ul>
+      <li><i class="fa fa-linux"></i> <a href="#/installation-linux">Linux</a></li>
+      <li><i class="fa fa-apple"></i> <a href="#/installation-macosx">Mac OSX</a></li>
+    </ul>
+  </section>
+  <section id="installation-linux">
+    <h1><i class="fa fa-linux"></i> Linux</h1>
+    <p>Ubuntu 12.04 (LTS) (64-bit)</p>
+<pre><code style="font-size: 0.5em;">
+$ sudo apt-get install linux-image-generic-lts-raring linux-headers-generic-lts-raring
+$ sudo reboot
+$ # Coffeeeee time!
+$ sudo sh -c "wget -qO- https://get.docker.io/gpg | apt-key add -"
+$ sudo sh -c "echo deb http://get.docker.io/ubuntu docker main\
+> /etc/apt/sources.list.d/docker.list"
+$ sudo apt-get update
+$ sudo apt-get install lxc-docker
+</code></pre>
+  </section>
+  <section id="installation-macosx">
+    <h1><i class="fa fa-apple"></i> Mac OSX</h1>
+    <p>LXC non disponible <i class="fa fa-frown-o"></i></p>
+    <p>boot2docker + Docker OS X Client</p>
+<pre><code style="font-size: 0.5em;">
+$ brew install boot2docker
+$ boot2docker init
+$ boot2docker up
+$ echo "export DOCKER_HOST='tcp://localhost:4243'" >> ~/.zshrc
+$ for i in {49000..49900}; do
+$ VBoxManage modifyvm "boot2docker-vm" --natpf1 "tcp-port$i,tcp,,$i,,$i";
+$ VBoxManage modifyvm "boot2docker-vm" --natpf1 "udp-port$i,udp,,$i,,$i";
+$ done
+</code></pre>
+  </section>
+  <section id="getting-started">
+    <h1><i class="fa fa-rocket"></i> Getting started</h1>
+  </section>
+  <section id="lets-try">
+    <h1><i class="fa fa-terminal"></i> Let's try!</h1>
+<pre><code>
+$ docker run ubuntu /bin/echo hello world
+</code></pre>
+    <p style="text-align: center;">
+      <img src="dog_idea.jpg" alt="dog"/>
+    </p>
+  </section>
+  <section id="how-its-works">
+    <h1>Qu'a fait docker ?</h1>
+    <ul class="steps" style="font-size: 75%;">
+      <li>Télécharge l'image de base depuis index.docker.io</li>
+      <li>Créé un conteneur LXC</li>
+      <li>Lui alloue un système de fichier</li>
+      <li>Le monte en lecture/écriture</li>
+      <li>Lui créé une interface réseau et lui attribut une IP</li>
+      <li>Execute un processus dans le conteneur</li>
+      <li>Capture la sortie et l'affiche sur votre console</li>
+    </ul>
+  </section>
+  <section id="dockerfiles">
+    <h1>Dockerfiles</h1>
+  </section>
+  <section id="dockerfiles-usefulness">
+    <h1>A quoi ça sert ?<h1>
+    <p style="font-size: 75%;">&laquo; C'est un cahier listant les actions à réaliser pour construire une image &raquo;</p>
+  </section>
+  <section id="dockerfiles-example">
+    <h1 style="margin-bottom: 0;">Exemple</h1>
+<pre style="font-size: 0.8em"><code>
+FROM ubuntu:latest
+
+# Add 10gen official apt source to the sources list
+RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
+RUN echo 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' | tee /etc/apt/sources.list.d/10gen.list
+
+# Install MongoDB
+RUN apt-get update
+RUN apt-get install mongodb-10gen
+
+# Create the MongoDB data directory
+RUN mkdir -p /data/db
+
+ENTRYPOINT ["usr/bin/mongod"]
+</code></pre>
+  </section>
+  <section id="dockerfiles-useful-commands">
+    <p><strong>RUN</strong> Execute la commande et commit le résultat</p>
+    <p><strong>EXPOSE</strong> Ouvre un port sur l'exterieur</p>
+    <p><strong>ADD</strong> Copie un fichier depuis le host vers le conteneur</p>
+    <p><strong>ENTRYPOINT</strong> Commande lancée à l'exécution du conteneur</p>
+  </section>
+  <section id="dockerfiles-execution">
+    <p>Exécution</p>
+<pre style="font-size: 1em"><code>
+$ docker build -t PKoin/mongodb .
+$ docker run -d -p 49100:27017 PKoin/mongodb
+</code></pre>
+<p style="text-align: center;"><img src="images/magic.jpeg" alt="magic" height="300px" /></p>
+  </section>
+  <section id="questions">
+    <i class="fa fa-question-circle"></i> Questions
+    <br/><img src="images/thank_you.jpg" alt="Thank you" height="400px" />
+    <p style="font-size: 0.8em; text-align: right;">
+      Julien&nbsp;Fusco
+      <br/><i class="fa fa-github"></i>&nbsp;github.com/Koin
+      <br/><i class="fa fa-twitter"></i>&nbsp;twitter.com/PKoin
+    </p>
+  </section>
+
+  <script src="bower_components/jquery/jquery.min.js"></script>
+  <script src="bower_components/keymaster/keymaster.js"></script>
+  <script src="bower_components/hammerjs/dist/hammer.min.js"></script>
+  <script src="bower_components/highlightjs/highlight.pack.js"></script>
+  <script src="bower_components/ruban/js/ruban.min.js"></script>
+  <script>
+    var ruban = new Ruban({
+      pagination: true
+    });
+  </script>
+</body>
+</html>
