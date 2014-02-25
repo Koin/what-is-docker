@@ -30,9 +30,6 @@
       <br/><i class="fa fa-twitter"></i>&nbsp;twitter.com/PKoin
     </p>
   </section>
-  <section id="table-des-matieres" class="toc">
-    <h1>Table des matières</h1>
-  </section>
   <section id="who">
     <h1><i class="fa fa-users"></i> Par qui ?</h1>
   </section>
@@ -85,7 +82,7 @@
   </section>
   <section id="lxc-details">
     <h2>LXC, &laquo;Linux Containers&raquo;</h2>
-    <p>Merci les <strong>namespaces</strong>!<br/><i class="fa fa-angle-right"></i> Isolation des processus, points de montage, interfaces réseaux, utilisateurs, ...</p>
+    <p>Merci les <strong>namespaces</strong> !<br/><i class="fa fa-angle-right"></i> Isolation des processus, points de montage, interfaces réseaux, utilisateurs, ...</p>
     <p>Merci les <strong>cgroups</strong> !<br/><i class="fa fa-angle-right"></i> Limitation des ressources (RAM, CPU) pour un groupe de processus</p>
   </section>
   <section id="aufs">
@@ -138,8 +135,7 @@
   <section id="installation-linux">
     <h1><i class="fa fa-linux"></i> Linux</h1>
     <p>Ubuntu 12.04 (LTS) (64-bit)</p>
-<pre><code style="font-size: 0.5em;">
-$ sudo apt-get install linux-image-generic-lts-raring linux-headers-generic-lts-raring
+<pre><code style="font-size: 0.5em;">$ sudo apt-get install linux-image-generic-lts-raring linux-headers-generic-lts-raring
 $ sudo reboot
 $ # Coffeeeee time!
 $ sudo sh -c "wget -qO- https://get.docker.io/gpg | apt-key add -"
@@ -153,15 +149,14 @@ $ sudo apt-get install lxc-docker
     <h1><i class="fa fa-apple"></i> Mac OSX</h1>
     <p>LXC non disponible <i class="fa fa-frown-o"></i></p>
     <p>boot2docker + Docker OS X Client</p>
-<pre><code style="font-size: 0.5em;">
-$ brew install boot2docker
+<pre><code style="font-size: 0.4em;">$ brew install boot2docker
 $ boot2docker init
 $ boot2docker up
 $ echo "export DOCKER_HOST='tcp://localhost:4243'" >> ~/.zshrc
 $ for i in {49000..49900}; do
-$ VBoxManage modifyvm "boot2docker-vm" --natpf1 "tcp-port$i,tcp,,$i,,$i";
-$ VBoxManage modifyvm "boot2docker-vm" --natpf1 "udp-port$i,udp,,$i,,$i";
-$ done
+    VBoxManage modifyvm "boot2docker-vm" --natpf1 "tcp-port$i,tcp,,$i,,$i";
+    VBoxManage modifyvm "boot2docker-vm" --natpf1 "udp-port$i,udp,,$i,,$i";
+  done
 </code></pre>
   </section>
   <section id="getting-started">
@@ -169,22 +164,18 @@ $ done
   </section>
   <section id="lets-try">
     <h1><i class="fa fa-terminal"></i> Let's try!</h1>
-<pre><code>
-$ docker run ubuntu /bin/echo hello world
+<pre><code>$ docker run ubuntu /bin/echo hello world
 </code></pre>
-    <p style="text-align: center;">
-      <img src="dog_idea.jpg" alt="dog"/>
-    </p>
   </section>
   <section id="how-its-works">
-    <h1>Qu'a fait docker ?</h1>
+    <h1>Que fait docker ?</h1>
     <ul class="steps" style="font-size: 75%;">
       <li>Télécharge l'image de base depuis index.docker.io</li>
       <li>Créé un conteneur LXC</li>
       <li>Lui alloue un système de fichier</li>
       <li>Le monte en lecture/écriture</li>
-      <li>Lui créé une interface réseau et lui attribut une IP</li>
-      <li>Execute un processus dans le conteneur</li>
+      <li>Lui crée une interface réseau et lui attribue une IP</li>
+      <li>Exécute un processus dans le conteneur</li>
       <li>Capture la sortie et l'affiche sur votre console</li>
     </ul>
   </section>
@@ -197,8 +188,7 @@ $ docker run ubuntu /bin/echo hello world
   </section>
   <section id="dockerfiles-example">
     <h1 style="margin-bottom: 0;">Exemple</h1>
-<pre style="font-size: 0.8em"><code>
-FROM ubuntu:latest
+<pre style="font-size: 0.8em"><code>FROM ubuntu:latest
 
 # Add 10gen official apt source to the sources list
 RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
@@ -214,16 +204,9 @@ RUN mkdir -p /data/db
 ENTRYPOINT ["usr/bin/mongod"]
 </code></pre>
   </section>
-  <section id="dockerfiles-useful-commands">
-    <p><strong>RUN</strong> Execute la commande et commit le résultat</p>
-    <p><strong>EXPOSE</strong> Ouvre un port sur l'exterieur</p>
-    <p><strong>ADD</strong> Copie un fichier depuis le host vers le conteneur</p>
-    <p><strong>ENTRYPOINT</strong> Commande lancée à l'exécution du conteneur</p>
-  </section>
   <section id="dockerfiles-execution">
     <p>Exécution</p>
-<pre style="font-size: 1em"><code>
-$ docker build -t PKoin/mongodb .
+<pre style="font-size: 1em"><code>$ docker build -t PKoin/mongodb .
 $ docker run -d -p 49100:27017 PKoin/mongodb
 </code></pre>
 <p style="text-align: center;"><img src="images/magic.jpeg" alt="magic" height="300px" /></p>
