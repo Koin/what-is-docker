@@ -2,7 +2,6 @@
   "name": "what_is_docker",
   "version": "0.0.1",
   "dependencies": {
-    "font-awesome": "~4.0.3",
-    "ruban": "~0.2.1"
+    "ruban": "~0.2.2"
   }
 }
