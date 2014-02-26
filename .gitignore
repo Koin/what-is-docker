@@ -1,3 +1,4 @@
 .DS_Store
-IDEAS
 bower_components/
+components/
+node_modules/

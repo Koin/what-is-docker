@@ -1,0 +1,11 @@
+{
+  "name": "what-is-docker",
+  "author": "Julien F. <julien.fusco@gmail.com>",
+  "version": "0.0.1",
+  "description": "Short presentation of Docker.",
+  "main": "index.html",
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-copy": "~0.5.0"
+  }
+}
